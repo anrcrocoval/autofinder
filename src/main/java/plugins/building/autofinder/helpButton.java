@@ -12,7 +12,7 @@
  **/
 
 
-package plugins.perrine.ecclemautofinder;
+package plugins.building.autofinder;
 
 
 import java.awt.event.ActionEvent;
@@ -32,7 +32,7 @@ public class helpButton extends JPanel {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 
 	public helpButton(EcclemAutoFinder ecclemAutoFinder) {
 	JButton btnNewButton = new JButton("I need help");
@@ -47,8 +47,8 @@ public class helpButton extends JPanel {
 			for (final PluginDescriptor pluginDescriptor : PluginLoader
 					.getPlugins()) {
 				
-				if (pluginDescriptor.getSimpleClassName()
-						.compareToIgnoreCase("AutoFinderWizard") == 0) {
+				if (pluginDescriptor.getClassName()
+						.compareToIgnoreCase("plugins.building.autofinder.AutoFinderWizard") == 0) {
 					// System.out.print(" ==> Starting by looking at the name....");
 
 					// Create a new Runnable which contain the proper

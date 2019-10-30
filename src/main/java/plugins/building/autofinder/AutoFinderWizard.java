@@ -12,7 +12,7 @@
  **/
 
 
-package plugins.perrine.ecclemautofinder;
+package plugins.building.autofinder;
 
 
 import java.awt.Dimension;
@@ -40,7 +40,7 @@ public class AutoFinderWizard extends EzPlug{
 	JRadioButton case3 = new JRadioButton("2D or 3D, use spot detection (q-dots,beads, melanosomes....) to find the corresponding area of EM in FM");
 	JRadioButton case4 = new JRadioButton("2D or 3D, use spot detection (q-dots,beads, melanosomes....) with similar content in EM and FM");
 	public AutoFinderWizard() {
-	System.out.println("and then");
+	System.out.println("this one is build AutoFinderWizard");
 }
 
 	private JLabel getIcon( String name )
