@@ -11,7 +11,7 @@
  * 
  **/
 
-package plugins.building.autofinder;
+package plugins.perrine.ecclemautofinder;
 
 import java.awt.Color;
 import java.util.ArrayList;

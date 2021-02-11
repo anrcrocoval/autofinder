@@ -1,389 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>fr.univ-nantes</groupId>
-    <artifactId>autofinder</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <!-- Inherited Icy Parent POM -->
+    <parent>
+        <groupId>org.bioimageanalysis.icy</groupId>
+        <artifactId>parent-pom-plugin</artifactId>
+        <version>1.0.3</version>
+    </parent>
 
+    <!-- Project Information -->
+    <artifactId>ecclemautofinder</artifactId>
+    <version>2.0.0.0</version>
+    
+    <packaging>jar</packaging>
+
+    <name>Ec CLEM AutoFinder</name>
+    <description>Automatic alignement of 2D/3D point set for correlative imaging</description>
+    <url></url>
+    <inceptionYear>2016</inceptionYear>
+
+    <organization>
+        <name>fr.univ-nantes.anrcrocoval</name>
+        <url>https://anrcrocoval.github.io/</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>GNU GPLv3</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>PerrineGilloteaux</id>
+            <name>Perrine Paul-Gilloteaux</name>
+            <url>https://cv.archives-ouvertes.fr/perrine-paul-gilloteaux</url>
+            <roles>
+                <role>founder</role>
+                <role>lead</role>
+                <role>architect</role>
+                <role>developer</role>
+                <role>debugger</role>
+                <role>tester</role>
+                <role>maintainer</role>
+                <role>support</role>
+            </roles>
+        </developer>
+         <developer>
+            <id>skunne</id>
+            <name>Stephan Kunne</name>
+         
+            <roles>
+                
+                <role>developer</role>
+                
+            </roles>
+        </developer>
+    </developers>
+
+    <!-- Project properties -->
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>icy</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>ezplug</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>colorbar</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>blocks</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>tvdenoising</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>filtertoolbox</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>bioformats</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>jogl</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>jai</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>vtk</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-<!--         <dependency>
-            <groupId>fr.univ-nantes</groupId>
-            <artifactId>ipopt</artifactId>
-            <version>0.0.0</version>
-        </dependency>
- -->
-        <dependency>
-            <groupId>gov.nist.math</groupId>
-            <artifactId>jama</artifactId>
-            <version>1.0.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jfree</groupId>
-            <artifactId>jfreechart</artifactId>
-            <version>1.0.19</version>
-        </dependency>
-        <dependency>
-            <groupId>net.imagej</groupId>
-            <artifactId>ij</artifactId>
-            <version>1.52n</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.6</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>28.1-jre</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openmicroscopy</groupId>
-            <artifactId>ome-xml</artifactId>
-            <version>6.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openmicroscopy</groupId>
-            <artifactId>ome-common</artifactId>
-            <version>6.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-math3</artifactId>
-            <version>3.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.3.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.dagger</groupId>
-            <artifactId>dagger</artifactId>
-            <version>2.24</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>28.1-jre</version>
-        </dependency>
-    </dependencies>
-
+    <!-- Project build configuration -->
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>com.google.dagger</groupId>
-                            <artifactId>dagger-compiler</artifactId>
-                            <version>2.24</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>3.0.0-M1</version>
-                <executions>
-                    <execution>
-                        <id>install-icy</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>icy</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/icy/icy.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-ezplug</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>ezplug</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/icy/plugins/adufour/ezplug/EzPlug.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-vtk</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>vtk</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/icy/lib/vtk.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-colorbar</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>colorbar</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/icy/plugins/stef/tools/overlay/ColorBar.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-blocks</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>blocks</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/icy/plugins/adufour/blocks/Blocks.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-tvdenoising</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>tvdenoising</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/icy/plugins/nchenouard/tvdenoising/TVDenoising.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-filtertoolbox</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>filtertoolbox</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/icy/plugins/adufour/filtering/FilterToolbox.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-bioformats</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>bioformats</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/icy/lib/bioformats.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-jogl</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>jogl</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/icy/lib/jogl-all.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-jai</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>jai</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/icy/lib/jai_core.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <!-- <execution>
-                        <id>install-ipopt</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <groupId>fr.univ-nantes</groupId>
-                            <artifactId>ipopt</artifactId>
-                            <version>0.0.0</version>
-                            <file>${project.basedir}/lib/ipopt.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution> -->
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.0.0</version>
-                <executions>
-                    <execution>
-                        <id>add-source</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${project.basedir}/target/generated-sources</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>add-test-source</id>
-                        <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>add-test-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${project.basedir}/target/generated-test-sources</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M3</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.1</version>
-                <configuration>
-                    <createDependencyReducedPom>false</createDependencyReducedPom>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+
     </build>
+
+    <!-- List of project's dependencies -->
+    <dependencies>
+        <!-- The core of Icy -->
+        <dependency>
+            <groupId>org.bioimageanalysis.icy</groupId>
+            <artifactId>icy-kernel</artifactId>
+        </dependency>
+
+        <!-- The EzPlug library, simplifies writing UI for Icy plugins. -->
+        <dependency>
+            <groupId>org.bioimageanalysis.icy</groupId>
+            <artifactId>ezplug</artifactId>
+        </dependency>
+		
+		
+		
+		
+		
+    </dependencies>
+	
+    <!-- Icy Maven repository (to find parent POM) -->
+    <repositories>
+        <repository>
+            <id>icy</id>
+            <name>Icy's Nexus</name>
+            <url>https://icy-nexus.pasteur.fr/repository/Icy/</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>server-id</id>
+            <url>server's url</url>
+        </snapshotRepository>
+        <repository>
+            <id>server-id</id>
+            <url>server's url</url>
+        </repository>
+    </distributionManagement>
 </project>
