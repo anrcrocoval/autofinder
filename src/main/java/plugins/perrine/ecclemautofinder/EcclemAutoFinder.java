@@ -25,6 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,20 +33,23 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import icy.canvas.IcyCanvas;
+import icy.file.Loader;
 import icy.gui.dialog.MessageDialog;
 
 import icy.gui.frame.progress.AnnounceFrame;
 import icy.gui.frame.progress.ProgressFrame;
 import icy.gui.frame.progress.ToolTipFrame;
-
+import icy.gui.viewer.Viewer;
 import icy.image.IcyBufferedImage;
 import icy.image.ImageUtil;
 import icy.image.lut.LUT;
+import icy.main.Icy;
 import icy.painter.Overlay;
 import icy.plugin.PluginDescriptor;
 import icy.plugin.PluginLauncher;
@@ -73,6 +77,7 @@ import plugins.adufour.ezplug.EzVarText;
 
 import plugins.adufour.vars.lang.VarInteger;
 import plugins.adufour.vars.lang.VarSequence;
+
 import plugins.kernel.roi.descriptor.measure.ROIMassCenterDescriptorsPlugin;
 import plugins.kernel.roi.roi2d.ROI2DPoint;
 
@@ -2326,7 +2331,14 @@ private List<Integer> generateRandomPointsList( int nbpointransac, int orinbpoin
 				 * test.InsertNextPoint(point.getX()*seq.getPixelSizeX(),point.getY(
 				 * )*seq.getPixelSizeY(),0*seq.getPixelSizeZ()); } }
 				 */
-				Point5D p3D = ROIMassCenterDescriptorsPlugin.computeMassCenter(roi);
+				Point5D p3D=null;
+				try {
+					p3D = ROIMassCenterDescriptorsPlugin.computeMassCenter(roi);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				if (roi.getClass().getName() == "plugins.kernel.roi.roi2d.ROI2DPoint")// because point have no ROI
 					p3D = roi.getPosition5D();
 				if (roi.getClass().getName() == "plugins.perrine.easyclemv0.myRoi3D")// because point have no ROI
@@ -2610,6 +2622,28 @@ private List<Integer> generateRandomPointsList( int nbpointransac, int orinbpoin
 			outputMap.add("Target Transformed on Source", tseqtarget);
 			outputMap.add("Corrected scale",scalepercent);
 			
+		}
+		public static void main( final String[] args ) throws InvocationTargetException, InterruptedException
+		{
+			// Launch the application.
+			Icy.main( args );
+
+			// Load an image.
+			final String imagePath = "C:\\Users\\perri\\Nextcloud\\Mes documents\\Papierssoumisouencours\\ENCOURS_ori\\AutomaticRegistration43points\\200824\\20200824_DFT_10_10_Aligned_binned_4x4x2.tif";
+			final Sequence sequence = Loader.loadSequence( imagePath, 0, true );
+			final String imagePath2 = "C:\\Users\\perri\\Nextcloud\\Mes documents\\Papierssoumisouencours\\ENCOURS_ori\\AutomaticRegistration43points\\200824\\C2-roi8.tif";
+			final Sequence sequence2 = Loader.loadSequence( imagePath2, 0, true );
+
+			
+
+			// Display the images.
+			SwingUtilities.invokeAndWait( () -> {
+				new Viewer( sequence );
+				new Viewer( sequence2 );
+			} );
+
+			// Run the plugin on the last active image (the copy).
+			PluginLauncher.start( PluginLoader.getPlugin( EcclemAutoFinder.class.getName() ) );
 		}
 
 	}
