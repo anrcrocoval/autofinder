@@ -45,7 +45,7 @@ public class AutoFinderWizard extends EzPlug{
 
 	private JLabel getIcon( String name )
 	{
-		ImageIcon icon =  new ImageIcon(this.getClass().getResource(name));
+		ImageIcon icon =  new ImageIcon(getClass().getResource(name));
 		//ImageIcon icon = ResourceUtil.getImageIcon( ImageUtil.load(  new File(name)  ) );		
 		JLabel label = new JLabel( icon );
 		label.setSize( 128 , 128 );
@@ -150,13 +150,13 @@ public class AutoFinderWizard extends EzPlug{
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		final String imagePath = "icons/nucleiFM.png";
+		
 		addComponent( GuiUtil.createLineBoxPanel( 	
 				Box.createHorizontalGlue(),
-				getIcon(imagePath),
-				getIcon("icons/nuclei.png"),
+				getIcon("/icons/nucleiFM.png"),
+				getIcon("/icons/nuclei.png"),
 				Box.createHorizontalGlue(),
-				getIcon("icons\\nucleifused.png"),
+				getIcon("/icons/nucleifused.png"),
 				
 				Box.createHorizontalGlue()));
 			addComponent( GuiUtil.createLineBoxPanel( 	
@@ -167,10 +167,10 @@ public class AutoFinderWizard extends EzPlug{
 			
 			addComponent( GuiUtil.createLineBoxPanel( 	
 					Box.createHorizontalGlue(),
-					getIcon("icons\\nucleiFMsamecontent.png"),
-					getIcon("icons\\nuclei.png"),
+					getIcon("/icons/nucleiFMsamecontent.png"),
+					getIcon("/icons/nuclei.png"),
 					Box.createHorizontalGlue(),
-					getIcon("icons\\nucleisamecontentfused.png"),
+					getIcon("/icons/nucleisamecontentfused.png"),
 					
 					Box.createHorizontalGlue()));
 				addComponent( GuiUtil.createLineBoxPanel( 	
@@ -181,10 +181,10 @@ public class AutoFinderWizard extends EzPlug{
 				
 				addComponent( GuiUtil.createLineBoxPanel( 	
 						Box.createHorizontalGlue(),
-						getIcon("icons\\spotFM.png"),
-						getIcon("icons\\spotEM.png"),
+						getIcon("/icons/spotFM.png"),
+						getIcon("/icons/spotEM.png"),
 						Box.createHorizontalGlue(),
-						getIcon("icons\\spotfused.png"),
+						getIcon("/icons/spotfused.png"),
 						
 						Box.createHorizontalGlue()));
 					addComponent( GuiUtil.createLineBoxPanel( 	
@@ -195,10 +195,10 @@ public class AutoFinderWizard extends EzPlug{
 					
 					addComponent( GuiUtil.createLineBoxPanel( 	
 							Box.createHorizontalGlue(),
-							getIcon("icons\\spotFMsamecontent.png"),
-							getIcon("icons\\spotEM.png"),
+							getIcon("/icons/spotFMsamecontent.png"),
+							getIcon("/icons/spotEM.png"),
 							Box.createHorizontalGlue(),
-							getIcon("icons\\spotsamecontentfused.png"),
+							getIcon("/icons/spotsamecontentfused.png"),
 							
 							Box.createHorizontalGlue()));
 						addComponent( GuiUtil.createLineBoxPanel( 	
