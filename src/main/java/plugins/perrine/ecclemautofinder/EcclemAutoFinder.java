@@ -290,6 +290,11 @@ public class EcclemAutoFinder extends EzPlug implements Block, EzStoppable {
 			//TODO an option such as Points placed very roughly against accurately detection
 			//double dist = 10*Math.max(imagetarget.getPixelSizeX(),imagesource.getPixelSizeX());//in um?
 			mybesttransform=AutoFinder(targetpoint,dist); 
+			if(Double.isInfinite(this.distance)) {
+				stopFlag = true;
+				MessageDialog.showDialog("Try to start again augmenting the Max distance allowed ");
+				return;
+			}
 			System.out.println( "The distance now is:"+this.distance);
 			myvtktransform.SetMatrix(mybesttransform);
 			applyTransformtosequenceandROI(myvtktransform, this.distance, myvtktransform);
