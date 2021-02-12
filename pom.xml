@@ -65,12 +65,20 @@
 
     <!-- Project properties -->
     <properties>
-
+	
     </properties>
 
     <!-- Project build configuration -->
     <build>
-
+	<plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <outputDirectory>C:\icy\plugins\perrine\ecclemautofinder</outputDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
     </build>
 
     <!-- List of project's dependencies -->
@@ -86,12 +94,14 @@
             <groupId>org.bioimageanalysis.icy</groupId>
             <artifactId>ezplug</artifactId>
         </dependency>
-		
-		
-		
-		
+        
+       
 		
     </dependencies>
+    
+    
+    
+    
 	
     <!-- Icy Maven repository (to find parent POM) -->
     <repositories>

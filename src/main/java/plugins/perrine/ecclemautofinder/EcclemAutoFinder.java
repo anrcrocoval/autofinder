@@ -2627,7 +2627,7 @@ private List<Integer> generateRandomPointsList( int nbpointransac, int orinbpoin
 		{
 			// Launch the application.
 			Icy.main( args );
-
+			
 			// Load an image.
 			final String imagePath = "C:\\Users\\perri\\Nextcloud\\Mes documents\\Papierssoumisouencours\\ENCOURS_ori\\AutomaticRegistration43points\\200824\\20200824_DFT_10_10_Aligned_binned_4x4x2.tif";
 			final Sequence sequence = Loader.loadSequence( imagePath, 0, true );
